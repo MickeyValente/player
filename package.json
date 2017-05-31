@@ -1,11 +1,51 @@
 {
-  "name": "mp3player",
-  "version": "1.0.0",
-  "description": "MP3 Audio Player by Mike A.K.A. Sky Angel",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "author": {
+    "name": "JD-R2",
+    "email": "jon_eldiablo@hotmail.com",
+    "url": "https://github.com/joneldiablo"
   },
-  "author": "Miguel Ángel Valente Vargas",
-  "license": "ISC All Rights Reserved"
+  "dependencies": {
+    "jquery": ">=2.2.4"
+  },
+  "description": "A jump-start for jQuery plugins development.",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-concat-css": "^0.3.1",
+    "grunt-contrib-coffee": "^0.13.0",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-cssmin": "^2.0.0",
+    "grunt-contrib-jshint": "^0.11.0",
+    "grunt-contrib-uglify": "^0.9.2",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-jscs": "^2.7.0",
+    "grunt-karma": "^0.12.0",
+    "jscs": "^2.10.1",
+    "karma": "^0.13.21",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "karma-qunit": "^0.1.5",
+    "phantomjs": "^1.9.18",
+    "qunitjs": "^1.19.0"
+  },
+  "keywords": [
+    "jquery-plugin",
+    "jquery",
+    "boilerplate",
+    "plugins"
+  ],
+  "license": "MIT",
+  "name": "player",
+  "optionalDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jquery-boilerplate/jquery-boilerplate.git"
+  },
+  "scripts": {
+    "jscs": "jscs src",
+    "test": "npm run jscs && grunt travis --verbose",
+    "start": "start json-server --watch ./src/DB.json && start whs .",
+    "start-with-routes": "start json-server --watch ./src/DB.json --routes ./src/DB_routes.json && start http-server ."
+  },
+  "version": "4.1.0"
 }
