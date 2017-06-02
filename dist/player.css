@@ -6,3 +6,10 @@ div.label.label-primary {
 div.label.label-primary > label.song {
 	margin-left: -15px !important;
 }
+
+label.control-label {
+	margin-bottom: 0px !important;
+	font-size: 14px !important;
+    padding: 7px 12px !important;
+    height: 100% !important;
+}
