@@ -2,7 +2,7 @@
   "name": "player",
   "license": "MIT",
   "authors": [
-    "JD-R2 <jon_eldiablo@hotmail.com>"
+    "Mike A.K.A. Sky Angel <<mickey00184@gmail.com>>"
   ],
   "description": "A jump-start for jQuery plugins development.",
   "keywords": [
@@ -14,7 +14,8 @@
   ],
   "main": "src/player.js",
   "dependencies": {
-    "jquery": "2.2.4"
+    "jquery": "2.2.4",
+	"bootstrap": "3.3.7"
   },
   "ignore": [
     "npm-debug.log",

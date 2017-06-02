@@ -1,0 +1,26 @@
+/*
+Ajustes para Product TPS
+*/
+.check-tax {
+    margin-top: 20px;
+}
+
+.card-box-empty{
+    height: 55px;
+}
+
+.remove-adds {
+    margin-top: -10px;
+    color: #ff5b5b !important;
+}
+
+.btn-mod{
+    margin-right: 5px;
+}
+
+.tags-input{
+    min-height: 38px;
+}
+.th-variants{
+    min-width: 180px;
+	}

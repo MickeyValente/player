@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+.img-table {
+	width: 0px;
+	height: 0px;
+	position: relative;
+	top: 35px;
+	left: 35px;
+	-moz-transition: all 400ms ease-in;
+	-webkit-transition: all 400ms ease-in;
+	-ms-transition: all 400ms ease-in;
+	-o-transition: all 400ms ease-in;
+	transition: all 400ms ease-in;
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-o-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+}

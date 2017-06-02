@@ -30,23 +30,18 @@ function initProgressBar() {
 	$("#end-time").html(totalLength);
 	
 	// calculate current value time
-	var startTime = calculateCurrentValue(currentTime);
-	$("#start-time").html(startTime);
+	var currentTime = calculateCurrentValue(currentTime);
+	$("#start-time").html(currentTime);
 	
-	var progress = (currentTime/length) * 100;
+	$("#progressBar").val($("#player").prop("currentTime")/ $("#player").prop("duration"));
 	
-	console.log("progress: " + progress + '%')
-	
-	$("#progressBar").css('width', progress + '%');
-	
-	/*
 	$("#progressBar").on("click", function(event){
 		var percent = event.offsetX / this.offsetWidth;
 		$("#player").attr("currentTime", (percent * $("#player").prop("duration")));
 		$("#progressBar").val(percent / 100);
 	});
 
-  if (player.currentTime == player.duration) {
+  /*if (player.currentTime == player.duration) {
     document.getElementById('play-btn').className = "";
   }*/
 };
@@ -181,7 +176,7 @@ $("#fileList").on("change", function() {
 		audio.track = track;
 		playList.push(audio);
 		
-		$("#playList").append('<div><i class="fa fa-music"></li>  <label class="song" data-track="' + track + '" data-song="' + source + '" style="user-select: none;">' + title + '</label></div>');
+		$("#playList").append('<div><label class="song m-l-15 m-b-0" data-track="' + track + '" data-song="' + source + '" style="font-size: small">' + (track < 10 ? '0' + track : track) + ' - ' + title + '</label></div>');
 		track++;
 	});
 	

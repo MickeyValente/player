@@ -1,0 +1,85 @@
+@CHARSET "UTF-8";
+
+.account-pages {
+  background-position: top left;
+}
+
+.card-box.card-blue {
+  background: rgb(9, 75, 133);
+  background: -moz-linear-gradient(top, rgba(9, 75, 133, 1) 0%, rgba(50, 86, 153, 1) 50%, rgba(9, 75, 133, 1) 100%);
+  background: -webkit-linear-gradient(top, rgba(9, 75, 133, 1) 0%, rgba(50, 86, 153, 1) 50%, rgba(9, 75, 133, 1) 100%);
+  background: linear-gradient(to bottom, rgba(9, 75, 133, 1) 0%, rgba(50, 86, 153, 1) 50%, rgba(9, 75, 133, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#094b85', endColorstr='#094b85', GradientType=0);
+}
+
+.card-box.card-blue h1, .card-box.card-blue h2, .card-box.card-blue h3, .card-box.card-blue h4, .card-box.card-blue h5, .card-box.card-blue h6, .card-box.card-blue p, .card-box.card-blue label {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: lighter;
+}
+
+.card-blue a {
+  color: #5c9edf;
+}
+
+button.btn-custom {
+  font-size: 18px;
+  line-height: 46px;
+  font-weight: lighter;
+}
+
+.alert-danger {
+  background-color: initial;
+  border-color: rgba(240, 80, 80, 1);
+  text-align: center;
+}
+
+.alert-success {
+  background-color: initial;
+  border-color: rgba(95, 190, 170, 1);
+  text-align: center;
+}
+
+.alert-warning {
+  background-color: initial;
+  border-color: rgba(255, 189, 74, 1);
+  text-align: center;
+}
+
+.btn-custom:hover, .btn-custom:focus, .btn-custom:active, .btn-custom.active, .btn-custom.focus, .btn-custom:active, .btn-custom:focus, .btn-custom:hover, .open>.dropdown-toggle.btn-custom {
+  background-color: #74adff !important;
+  border: 1px solid #74adff !important;
+}
+
+.left-align.wrapper-page {
+  position: fixed;
+  margin: 5% 4% auto;
+}
+
+figure#logo_log_content {
+  padding: 0 28%;
+}
+
+figure#logo_log_content img {
+  -webkit-filter: drop-shadow(0px 0px 6px #fff);
+  filter: drop-shadow(0px 0px 6px #fff);
+}
+
+@media screen and (min-height: 1200px) and (min-width: 1000px) and (orientation: portrait) {
+  .account-pages {
+    background-position: center;
+  }
+}
+@media screen and (max-height: 560px) and (max-width: 1000px) and (orientation: landscape) {
+  img#logo_log {
+    position: fixed;
+    z-index: 3;
+    width: 90px;
+    top: 15px;
+    left: 30px;
+  }
+  .wrapper-page.left-align {
+    position: inherit;
+    margin: auto;
+  }
+}
