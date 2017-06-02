@@ -1,4 +1,3 @@
-var playList = [];
 var source = "";
 var track = 1;
 var title = "";
@@ -21,6 +20,18 @@ function calculateCurrentValue(currentTime) {
 	return current_time;
 }
 
+$("#progressBar").parent().on("click", function(e) {
+	var length = $("#player").prop("duration");
+	var total = $(this).css("width").replace("px", "")
+	var xPos = e.pageX - $(this).offset().left;
+	var percent = parseFloat(xPos/total).toFixed(2);
+	var currentTime = parseFloat(percent * length).toFixed(2);
+	percent = (percent * 100);
+	
+	$("#player").attr("currentTime", currentTime);
+	$("#progressBar").css('width', percent + '%');
+})
+	
 function initProgressBar() {
 	var length = $("#player").prop("duration");
 	var currentTime = $("#player").prop("currentTime");
@@ -33,22 +44,13 @@ function initProgressBar() {
 	var startTime = calculateCurrentValue(currentTime);
 	$("#start-time").html(startTime);
 	
-	var progress = (currentTime/length) * 100;
-	
-	console.log("progress: " + progress + '%')
-	
+	var progress = parseFloat((currentTime/length) * 100).toFixed(2);
 	$("#progressBar").css('width', progress + '%');
 	
-	/*
-	$("#progressBar").on("click", function(event){
-		var percent = event.offsetX / this.offsetWidth;
-		$("#player").attr("currentTime", (percent * $("#player").prop("duration")));
-		$("#progressBar").val(percent / 100);
-	});
-
-  if (player.currentTime == player.duration) {
-    document.getElementById('play-btn').className = "";
-  }*/
+	if (currentTime == length && $("#player").data("current") == $(".song").length) {
+		$("#pause").hide();
+		$("#stop").show();
+	}
 };
 
 function displayInfo(mp3Info) {
@@ -157,20 +159,41 @@ function loadFromFile(file) {
 }
 
 function play(audio) {
+	/** get the data info about the audio loaded **/
 	var source = audio.source;
 	var title = audio.title;
 	var track = audio.track;
+	/** calculate the total tracks in the current playlist **/
 	var totalTracks = $(".song").length;
+	/** set the data info to the audio tag **/
 	$("#player").attr('src', source);
 	$("#player").attr('data-current', audio.track);
 	$("#player").attr('autoplay', "true");
 	$("#trackId").html(audio.track + "/" + totalTracks);
-	
-	console.log("Playing now: " + title + ".mp3 -> Track: " + track + "\n");
+	/** remove the marquee for the div before selected (if exists) **/
+	$(".song > marquee").each(function(){
+		var dataTitle = $(this).parent().data("title");
+		$(".song > marquee").parent().parent().removeClass("label label-primary");
+		$(".song > marquee").parent().html(dataTitle);
+	});
+	/** set the marquee for the current audio playing **/
+	var current = $("#playList>div")[(track-1)];
+	$(current).addClass("label label-primary");
+	$(current).children().html('<marquee scrolldelay="200" style="vertical-align: middle;">' + title + '<marquee>')
+	/** verify if the stop button is visible, then hide it **/
+	if ($("#stop").css("display") != "none") {
+		$("#stop").hide();
+	}
+	/** hide the play button and show the pause button **/
+	$("#play").hide();
+	$("#pause").show();
 }
 
 $("#fileList").on("change", function() {
+	var playList = [];
+	track = 1;
 	var list = $(this)[0].files;
+	$("#playList").empty();
 	$.each(list, function(value) {
 		var audio = new Object();
 		var title = this.name.replace(".mp3", "");
@@ -181,16 +204,14 @@ $("#fileList").on("change", function() {
 		audio.track = track;
 		playList.push(audio);
 		
-		$("#playList").append('<div><i class="fa fa-music"></li>  <label class="song" data-track="' + track + '" data-song="' + source + '" style="user-select: none;">' + title + '</label></div>');
+		$("#playList").append('<div><label class="song m-l-15" data-track="' + track + '" data-title="' + title + '" data-song="' + source + '" style="width: 91%;">' + title + '</label></div>');
 		track++;
 	});
 	
 	var playTrack = Math.floor((Math.random() * ($(".song").length)) + 1);
 	play (playList[playTrack-1]);
 	loadFromFile($(this)[0].files[playTrack-1]);
-	$("#play").hide();
-	$("#pause").show();
-	
+	/** on double click event to playList **/
 	$(".song").on("dblclick", function(){
 		var source = $(this).attr('data-song');
 		var title = $(this).html();
@@ -203,6 +224,7 @@ $("#fileList").on("change", function() {
 		
 		play(audio);
 		loadFromFile($("#fileList")[0].files[(track-1)]);
+		
 		return false;
 	});
 });

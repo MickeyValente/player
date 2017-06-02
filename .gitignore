@@ -1,5 +1,8 @@
-bower_components/bootstrap/fonts
-bower_components/bootstrap/grunt
-bower_components/bootstrap/js
-bower_components/bootstrap/less
-bower_components/bootstrap/nuget
+bower_components/
+node_modules/
+*.editorconfig
+*.jscsrc
+*.jshintrc
+*.npmignore
+Gruntfile.js
+karma.conf.js

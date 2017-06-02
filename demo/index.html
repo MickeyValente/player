@@ -3,6 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<!-- player styles -->
+	<link rel="stylesheet" href="../src/player.css">
 	<!-- adminto themes -->
 	<link href="assets/css/core.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/components.css" rel="stylesheet" type="text/css" />
@@ -12,6 +14,7 @@
     <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
 	
 	<link rel="shortcut icon" href="img/mp3.png">
+	
 	<title>MP3 Player by mickey</title>
 </head>
 <body class="fixed-left widescreen">
@@ -64,9 +67,9 @@
 								<audio id="player" data-current="" preload="auto" autoplay="" autobuffer="" style="width: 250px;" ontimeupdate="initProgressBar()"></audio>
 								<div class="m-t-15 m-b-10">
 									<b style="font-size: small;">
-										<small style="float: left; border: outset; width: 40px; height: 21px;" id="start-time">02:12</small>
-										<small style="border: inset; width: 60px; height: 21px;" id="trackId">5/5</small>
-										<small style="float: right; border: outset; width: 40px; height: 21px;" id="end-time">02:01</small>
+										<small style="float: left; border: outset; width: 40px; height: 21px;" id="start-time">00:00</small>
+										<small style="border: inset; width: 60px; height: 21px;" id="trackId">0/0</small>
+										<small style="float: right; border: outset; width: 40px; height: 21px;" id="end-time">00:00</small>
 									</b>
 								</div>
 								<div class="progress m-b-0">
@@ -91,6 +94,9 @@
 									</button>
 									<button class="btn btn-primary btn-rounded w-md waves-effect waves-light" style="display: none;" id="pause" title="Pause">
 										<i class="fa fa-pause"></i>
+									</button>
+									<button class="btn btn-primary btn-rounded w-md waves-effect waves-light" style="display: none;" id="stop" title="Stop">
+										<i class="fa fa-stop"></i>
 									</button>
 									<button class="btn btn-icon waves-effect waves-light btn-purple m-b-5" id="next" title="Next">
 										<i class="fa fa-step-forward"></i>
@@ -141,9 +147,10 @@
 		</div>
 	</div>
 	
-	<!-- Scripts -->
+	<!-- Bower Components -->
 	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="js/id3-minimized.js"></script>
+	<script src="../bower_components/JavaScript-ID3-Reader/dist/id3-minimized.js"></script>
+	<!-- Source Scripts -->
 	<script src="js/mp3.js"></script>
 </body>

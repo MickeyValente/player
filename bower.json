@@ -15,7 +15,8 @@
   "main": "src/player.js",
   "dependencies": {
     "jquery": "2.2.4",
-	"bootstrap": "3.3.7"
+	"bootstrap": "3.3.7",
+	"JavaScript-ID3-Reader": "https://github.com/aadsm/JavaScript-ID3-Reader.git"
   },
   "ignore": [
     "npm-debug.log",
