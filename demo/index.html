@@ -43,7 +43,7 @@
 		
 		<!-- left side menu -->
 		<div class="left side-menu" style="user-select: none;">
-			<div class="panel panel-color panel-inverse">
+			<div class="panel panel-color panel-inverse m-b-0">
 				<div class="panel-heading p-t-10 p-b-10" style="padding-left: 15px;">
 					<div class="panel-title" style="font-size: 14px;">
 						<i class="fa fa-list-ul"></i>
@@ -61,9 +61,10 @@
 			<div class="content">
 				<div class="container">
 					<div class="row">
-						<div class="col-xs-3 text-center">
-							<div class="card-box" style="padding: 15px;">
-								<img src="img/mp3.png" class="img-responsive img-circle" id="art">
+						<!-- Album Art, Progress Bar and Time Segment -->
+						<div class="col-xs-3 text-center" style="padding: 15px;">
+							<div class="card-box m-b-0" style="padding: 15px;">
+								<img src="img/mp3.png" width="245px" height="245px" class="img-responsive img-circle" id="art">
 								<audio id="player" data-current="" preload="auto" autoplay="" autobuffer="" style="width: 250px;" ontimeupdate="initProgressBar()"></audio>
 								<div class="m-t-15 m-b-10">
 									<b style="font-size: small;">
@@ -75,69 +76,74 @@
 								<div class="progress m-b-0">
 									<div id="progressBar" class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
 								</div>
-							</div>
-						</div>
-					
-					
-					
-						<div class="col-xs-3 text-center" style="padding-top: 15px; padding-bottom: 15px;">
-							<div class="card-box" style="user-select: none;">
-								<div class="col-xs-12">
-									<button class="btn btn-icon waves-effect waves-light btn-purple" id="shuffle" title="Shuffle">
+								<div class="row m-t-15">
+									<button class="btn btn-icon btn-rounded waves-effect waves-light btn-primary" id="shuffle" title="Shuffle">
 										<i class="fa fa-random"></i>
 									</button>
-									<button class="btn btn-icon waves-effect waves-light btn-purple m-b-5" id="prev" title="Previous">
+									<button class="btn btn-icon btn-rounded waves-effect waves-light btn-primary" id="prev" title="Previous">
 										<i class="fa fa-step-backward"></i>
 									</button>
-									<button class="btn btn-primary btn-rounded w-md waves-effect waves-light" id="play" title="Play">
+									<button class="btn btn-icon btn-rounded waves-effect waves-light btn-primary" id="play" title="Play">
 										<i class="fa fa-play"></i>
 									</button>
-									<button class="btn btn-primary btn-rounded w-md waves-effect waves-light" style="display: none;" id="pause" title="Pause">
+									<button class="btn btn-icon btn-rounded waves-effect waves-light btn-primary" style="display: none;" id="pause" title="Pause">
 										<i class="fa fa-pause"></i>
 									</button>
-									<button class="btn btn-primary btn-rounded w-md waves-effect waves-light" style="display: none;" id="stop" title="Stop">
+									<button class="btn btn-icon btn-rounded waves-effect waves-light btn-primary" style="display: none;" id="stop" title="Stop">
 										<i class="fa fa-stop"></i>
 									</button>
-									<button class="btn btn-icon waves-effect waves-light btn-purple m-b-5" id="next" title="Next">
+									<button class="btn btn-icon btn-rounded waves-effect waves-light btn-primary" id="next" title="Next">
 										<i class="fa fa-step-forward"></i>
 									</button>
-									<button class="btn btn-icon waves-effect waves-light btn-purple m-b-5" id="btnPlayList" title="PlayList">
+									<button class="btn btn-icon btn-rounded waves-effect waves-light btn-primary" id="btnPlayList" title="PlayList">
 										<i class="fa fa-list-ul"></i>
 									</button>
 								</div>
 							</div>
 						</div>
-						<div class="col-xs-4">
-							<h4 class="header-title m-t-0 m-b-30">File Info</h4>
-							<br/>
-							<div class="form-group">
-								<label class="col-md-2 control-label">Title:</label>
-								<div class="col-md-10">
-									<label class="control-label" id="title"></label>
+						<!-- Panel Details -->
+						<div class="col-xs-5" style="padding: 15px;">
+							<div class="card-box">
+								<h4 class="header-title m-t-0 m-b-30">File Info</h4>
+								<div class="row">
+									<div class="form-group">
+										<label class="col-md-2 control-label">Title: </label>
+										<div class="col-md-10">
+											<label class="control-label" id="title"></label>
+										</div>
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-2 control-label">Artist:</label>
-								<div class="col-md-10">
-									<label class="control-label" id="artist"></label>
+								<div class="row">
+									<div class="form-group">
+										<label class="col-md-2 control-label">Artist:</label>
+										<div class="col-md-10">
+											<label class="control-label" id="artist"></label>
+										</div>
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-2 control-label">Album:</label>
-								<div class="col-md-10">
-									<label class="control-label" id="album"></label>
+								<div class="row">
+									<div class="form-group">
+										<label class="col-md-2 control-label">Album:</label>
+										<div class="col-md-10">
+											<label class="control-label" id="album"></label>
+										</div>
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-2 control-label">Year:</label>
-								<div class="col-md-10">
-									<label class="control-label" id="year"></label>
+								<div class="row">
+									<div class="form-group">
+										<label class="col-md-2 control-label">Year:</label>
+										<div class="col-md-10">
+											<label class="control-label" id="year"></label>
+										</div>
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-2 control-label">Genre:</label>
-								<div class="col-md-10">
-									<label class="control-label" id="genre"></label>
+								<div class="row">
+									<div class="form-group">
+										<label class="col-md-2 control-label">Genre:</label>
+										<div class="col-md-10">
+											<label class="control-label" id="genre"></label>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>

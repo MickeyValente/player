@@ -6,3 +6,14 @@ div.label.label-primary {
 div.label.label-primary > label.song {
 	margin-left: -15px !important;
 }
+
+button.btn.btn-icon.btn-rounded {
+	border-radius: 2em !important;
+	padding: 6px 14px !important;
+}
+
+div.sidebar-inner {
+    max-height: 457px;
+	overflow-y: auto;
+    overflow-x: hidden;
+}

@@ -4,5 +4,3 @@ node_modules/
 *.jscsrc
 *.jshintrc
 *.npmignore
-Gruntfile.js
-karma.conf.js
